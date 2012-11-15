@@ -90,7 +90,7 @@ namespace Daily_TDD_Kata_Tests
             public void ReturnSixForStringSupportingDifferentDelimeters()
             {
                 // arrange
-                string numbers = @"//;1\n2,3";
+                string numbers = @"//;\n1\n2,3";
                 int expected = 6;
 
                 // act

@@ -3,3 +3,8 @@ c:\users\jobney\documents\visual studio 2012\Projects\Daily_TDD_Kata\Daily_TDD_K
 c:\users\jobney\documents\visual studio 2012\Projects\Daily_TDD_Kata\Daily_TDD_Kata\obj\Debug\Daily_TDD_Kata.csprojResolveAssemblyReference.cache
 c:\users\jobney\documents\visual studio 2012\Projects\Daily_TDD_Kata\Daily_TDD_Kata\obj\Debug\Daily_TDD_Kata.dll
 c:\users\jobney\documents\visual studio 2012\Projects\Daily_TDD_Kata\Daily_TDD_Kata\obj\Debug\Daily_TDD_Kata.pdb
+C:\Users\jobney\Documents\Git\Daily_TDD_Kata\Daily_TDD_Kata\bin\Debug\Daily_TDD_Kata.dll
+C:\Users\jobney\Documents\Git\Daily_TDD_Kata\Daily_TDD_Kata\bin\Debug\Daily_TDD_Kata.pdb
+C:\Users\jobney\Documents\Git\Daily_TDD_Kata\Daily_TDD_Kata\obj\Debug\Daily_TDD_Kata.csprojResolveAssemblyReference.cache
+C:\Users\jobney\Documents\Git\Daily_TDD_Kata\Daily_TDD_Kata\obj\Debug\Daily_TDD_Kata.dll
+C:\Users\jobney\Documents\Git\Daily_TDD_Kata\Daily_TDD_Kata\obj\Debug\Daily_TDD_Kata.pdb
