@@ -1,0 +1,7 @@
+c:\users\jobney\documents\visual studio 2012\Projects\Daily_TDD_Kata\Daily_TDD_Kata_Tests\bin\Debug\Daily_TDD_Kata_Tests.dll
+c:\users\jobney\documents\visual studio 2012\Projects\Daily_TDD_Kata\Daily_TDD_Kata_Tests\bin\Debug\Daily_TDD_Kata_Tests.pdb
+c:\users\jobney\documents\visual studio 2012\Projects\Daily_TDD_Kata\Daily_TDD_Kata_Tests\obj\Debug\Daily_TDD_Kata_Tests.csprojResolveAssemblyReference.cache
+c:\users\jobney\documents\visual studio 2012\Projects\Daily_TDD_Kata\Daily_TDD_Kata_Tests\obj\Debug\Daily_TDD_Kata_Tests.dll
+c:\users\jobney\documents\visual studio 2012\Projects\Daily_TDD_Kata\Daily_TDD_Kata_Tests\obj\Debug\Daily_TDD_Kata_Tests.pdb
+c:\users\jobney\documents\visual studio 2012\Projects\Daily_TDD_Kata\Daily_TDD_Kata_Tests\bin\Debug\Daily_TDD_Kata.dll
+c:\users\jobney\documents\visual studio 2012\Projects\Daily_TDD_Kata\Daily_TDD_Kata_Tests\bin\Debug\Daily_TDD_Kata.pdb
