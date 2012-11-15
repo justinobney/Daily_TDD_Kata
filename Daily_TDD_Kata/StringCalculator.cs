@@ -18,7 +18,7 @@ namespace Daily_TDD_Kata
             // Standard Delimiters
             List<string> delimiters = new List<string>(){ ",", @"\n" };
 
-            // Finds delimiters that batch the //[delimiter] pattern and adds them
+            // Finds delimiters that match the //[delimiter]\n pattern and adds them
             Match dynamic_delimiters = new Regex(@"^//[\D]*\\n").Match(numbers);
             if (dynamic_delimiters.Success)
             {
