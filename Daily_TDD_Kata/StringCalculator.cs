@@ -12,28 +12,40 @@ namespace Daily_TDD_Kata
         {
             int result = 0;
 
-            // An empty string always yields 0.
+            // An EMPTY string should always yield 0
             if (numbers == "") return 0;
 
-            // Standard Delimiters
-            List<string> delimiters = new List<string>(){ ",", @"\n" };
+            // Define standard delimiters
+            List<string> delimiters = new List<string>() { ",", @"\n" };
 
-            // Finds delimiters that match the //[delimiter]\n pattern and adds them
-            Match dynamic_delimiters = new Regex(@"^//[\D]*\\n").Match(numbers);
-            if (dynamic_delimiters.Success)
-            {
-                numbers = numbers.Replace(dynamic_delimiters.Groups[0].Value, "");
-                delimiters.Add(dynamic_delimiters.Groups[0].Value.Replace(@"//", ""));
+            // Check input for dynamically defined delimiters
+            /* REGEX: ^//[\D]*\\n
+             *   ^      = Starts with
+             *   //     = Simple character matching "//"
+             *   [/D]*  = Matches a non-digit character. Equivalent to [^0-9].
+             *   \\n    = Matches the "\n" Newline string
+            */
+            Match string_defined_delimiters = new Regex(@"^//[\D]*\\n").Match(numbers);
+
+            if (string_defined_delimiters.Success) { 
+                // Add matched group value, removing the // and \n
+                delimiters.Add(string_defined_delimiters
+                                .Groups[0].Value
+                                .Replace(@"//", "").Replace(@"\n", "")
+                            );
+
+                // Remove the // from the original input
+                numbers = numbers.Replace(string_defined_delimiters.Groups[0].Value, "");
             }
 
-            // Checks for the existance of any delimiters else assumes it is a parsable number
+            // check for delimiters
             if (delimiters.Any(numbers.Contains))
             {
-                IEnumerable<string> number_arr = (IEnumerable<string>)numbers.Split(delimiters.ToArray(), StringSplitOptions.None);
-                result = number_arr.Select(s => int.Parse(s)).Sum();
+                // convert split array to ienumerable to more easily do work on the numbers
+                IEnumerable<string> numbers_worker = (IEnumerable<string>)numbers.Split(delimiters.ToArray(), StringSplitOptions.RemoveEmptyEntries);
+                result = numbers_worker.Select(n => int.Parse(n)).Sum();
             }
-            else
-            {
+            else {
                 result = int.Parse(numbers);
             }
 

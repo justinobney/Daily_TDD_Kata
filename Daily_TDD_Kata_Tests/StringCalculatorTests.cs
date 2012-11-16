@@ -15,90 +15,85 @@ namespace Daily_TDD_Kata_Tests
             public void ReturnZeroForEmptyString()
             {
                 // arrange
-                string empty_string = "";
+                string input_string = "";
                 int expected = 0;
 
                 // act
-                int actual = StringCalculator.Add(empty_string);
+                int actual = StringCalculator.Add(input_string);
 
                 // assert
                 Assert.AreEqual(expected, actual);
-                
             }
 
             [TestMethod]
-            public void ReturnOneForStringOne()
+            public void ReturnOneforStringOne()
             {
                 // arrange
-                string numbers = "1";
+                string input_string = "1";
                 int expected = 1;
 
                 // act
-                int actual = StringCalculator.Add(numbers);
+                int actual = StringCalculator.Add(input_string);
 
                 // assert
                 Assert.AreEqual(expected, actual);
-                
             }
 
             [TestMethod]
             public void ReturnThreeForStringOneTwo()
             {
                 // arrange
-                string numbers = "1,2";
+                string input_string = "1,2";
                 int expected = 3;
 
                 // act
-                int actual = StringCalculator.Add(numbers);
+                int actual = StringCalculator.Add(input_string);
 
                 // assert
                 Assert.AreEqual(expected, actual);
-
+                
             }
 
             [TestMethod]
-            public void ReturnSixForStringOneTwoTree()
+            public void ReturnSixForStringOneTwoThree()
             {
                 // arrange
-                string numbers = "1,2,3";
+                string input_string = "1,2,3";
                 int expected = 6;
 
                 // act
-                int actual = StringCalculator.Add(numbers);
+                int actual = StringCalculator.Add(input_string);
 
                 // assert
                 Assert.AreEqual(expected, actual);
-
             }
 
             [TestMethod]
-            public void ReturnSixForStringWithMultipleDelimeters()
+            public void ReturnSixUsingNewlineDelimiter()
             {
                 // arrange
-                string numbers = @"1\n2,3";
+                string input_string = @"1\n2,3";
                 int expected = 6;
 
                 // act
-                int actual = StringCalculator.Add(numbers);
+                int actual = StringCalculator.Add(input_string);
 
                 // assert
                 Assert.AreEqual(expected, actual);
-
             }
 
             [TestMethod]
-            public void ReturnSixForStringSupportingDifferentDelimeters()
+            public void ReturnSixUsingDelimitersDefinedInInputString()
             {
                 // arrange
-                string numbers = @"//;\n1\n2,3";
-                int expected = 6;
+                string input_string = @"//;\n1;2";
+                int expected = 3;
 
                 // act
-                int actual = StringCalculator.Add(numbers);
+                int actual = StringCalculator.Add(input_string);
 
                 // assert
                 Assert.AreEqual(expected, actual);
-
             }
         }
     }
