@@ -8,3 +8,8 @@ C:\Users\jobney\Documents\Git\Daily_TDD_Kata\Daily_TDD_Kata\bin\Debug\Daily_TDD_
 C:\Users\jobney\Documents\Git\Daily_TDD_Kata\Daily_TDD_Kata\obj\Debug\Daily_TDD_Kata.csprojResolveAssemblyReference.cache
 C:\Users\jobney\Documents\Git\Daily_TDD_Kata\Daily_TDD_Kata\obj\Debug\Daily_TDD_Kata.dll
 C:\Users\jobney\Documents\Git\Daily_TDD_Kata\Daily_TDD_Kata\obj\Debug\Daily_TDD_Kata.pdb
+C:\Users\Justin-Mac\Documents\GitHub\Daily_TDD_Kata\Daily_TDD_Kata\bin\Debug\Daily_TDD_Kata.dll
+C:\Users\Justin-Mac\Documents\GitHub\Daily_TDD_Kata\Daily_TDD_Kata\bin\Debug\Daily_TDD_Kata.pdb
+C:\Users\Justin-Mac\Documents\GitHub\Daily_TDD_Kata\Daily_TDD_Kata\obj\Debug\Daily_TDD_Kata.csprojResolveAssemblyReference.cache
+C:\Users\Justin-Mac\Documents\GitHub\Daily_TDD_Kata\Daily_TDD_Kata\obj\Debug\Daily_TDD_Kata.dll
+C:\Users\Justin-Mac\Documents\GitHub\Daily_TDD_Kata\Daily_TDD_Kata\obj\Debug\Daily_TDD_Kata.pdb

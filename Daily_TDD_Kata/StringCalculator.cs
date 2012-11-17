@@ -18,7 +18,7 @@ namespace Daily_TDD_Kata
             // Define standard delimiters
             List<string> delimiters = new List<string>() { ",", @"\n" };
 
-            // Check input for dynamically defined delimiters
+            // Regex for finding dynamic delimiters
             /* REGEX: ^//[\D]*\\n
              *   ^      = Starts with
              *   //     = Simple character matching "//"
@@ -27,7 +27,9 @@ namespace Daily_TDD_Kata
             */
             Match string_defined_delimiters = new Regex(@"^//[\D]*\\n").Match(numbers);
 
+            // Check input for dynamically defined delimiters
             if (string_defined_delimiters.Success) { 
+               
                 // Add matched group value, removing the // and \n
                 delimiters.Add(string_defined_delimiters
                                 .Groups[0].Value
@@ -38,16 +40,17 @@ namespace Daily_TDD_Kata
                 numbers = numbers.Replace(string_defined_delimiters.Groups[0].Value, "");
             }
 
-            // check for delimiters
-            if (delimiters.Any(numbers.Contains))
-            {
-                // convert split array to ienumerable to more easily do work on the numbers
-                IEnumerable<string> numbers_worker = (IEnumerable<string>)numbers.Split(delimiters.ToArray(), StringSplitOptions.RemoveEmptyEntries);
-                result = numbers_worker.Select(n => int.Parse(n)).Sum();
+            // Convert split array to ienumerable to more easily do work on the numbers
+            IEnumerable<string> numbers_worker = (IEnumerable<string>)numbers.Split(delimiters.ToArray(), StringSplitOptions.RemoveEmptyEntries);
+            
+            if (numbers_worker.Where(n => int.Parse(n) < 0).Count() > 0)
+            { 
+               throw new Exception("negatives not allowed");
             }
-            else {
-                result = int.Parse(numbers);
-            }
+            
+
+            // Calculate the Sum
+            result = numbers_worker.Select(n => int.Parse(n)).Sum();
 
             return result;
         }

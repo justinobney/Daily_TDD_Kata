@@ -95,6 +95,20 @@ namespace Daily_TDD_Kata_Tests
                 // assert
                 Assert.AreEqual(expected, actual);
             }
+
+            [TestMethod]
+            [ExpectedException(typeof(System.Exception))]
+            public void ThrowExceptionWhenStringContainsNegativeNumbers()
+            {
+                // arrange
+                string input_string = @"//;\n1;-2";
+
+                // act
+                int actual = StringCalculator.Add(input_string);
+
+                // assert
+                
+            }
         }
     }
 }
