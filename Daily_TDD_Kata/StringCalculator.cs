@@ -15,7 +15,7 @@ namespace Daily_TDD_Kata
             // An EMPTY string should always yield 0
             if (numbers == "") return 0;
 
-            // Define standard delimiters
+            // Define standard delimiters:   [,] [\n]
             List<string> delimiters = new List<string>() { ",", @"\n" };
 
             // Regex for finding dynamic delimiters
@@ -25,16 +25,14 @@ namespace Daily_TDD_Kata
              *   [/D]*  = Matches a non-digit character. Equivalent to [^0-9].
              *   \\n    = Matches the "\n" Newline string
             */
-            Match string_defined_delimiters = new Regex(@"^//[\D]*\\n").Match(numbers);
+            Match string_defined_delimiters = new Regex(@"^//(\[?)[\D]*(\]?)\\n").Match(numbers);
 
             // Check input for dynamically defined delimiters
             if (string_defined_delimiters.Success) { 
                
                 // Add matched group value, removing the // and \n
-                delimiters.Add(string_defined_delimiters
-                                .Groups[0].Value
-                                .Replace(@"//", "").Replace(@"\n", "")
-                            );
+                string cleaned_delimiter = Regex.Replace(string_defined_delimiters.Groups[0].Value, @"//|\[|\]|\\n", "", RegexOptions.IgnoreCase);
+                delimiters.Add(cleaned_delimiter);
 
                 // Remove the // from the original input
                 numbers = numbers.Replace(string_defined_delimiters.Groups[0].Value, "");
@@ -42,15 +40,17 @@ namespace Daily_TDD_Kata
 
             // Convert split array to ienumerable to more easily do work on the numbers
             IEnumerable<string> numbers_worker = (IEnumerable<string>)numbers.Split(delimiters.ToArray(), StringSplitOptions.RemoveEmptyEntries);
-            
-            if (numbers_worker.Where(n => int.Parse(n) < 0).Count() > 0)
+
+            // Negative values are not allowed in the input and should be displayed in the error message
+            IEnumerable<string> negative_values = numbers_worker.Where(n => int.Parse(n) < 0);
+            if (negative_values.Count() > 0)
             { 
-               throw new Exception("negatives not allowed");
+               throw new Exception("negatives not allowed: " + string.Join(",", negative_values));
             }
             
-
+            // Ignore numbers greater than 1000
             // Calculate the Sum
-            result = numbers_worker.Select(n => int.Parse(n)).Sum();
+            result = numbers_worker.Where(s => int.Parse(s) <= 1000).Select(n => int.Parse(n)).Sum();
 
             return result;
         }

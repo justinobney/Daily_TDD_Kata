@@ -97,17 +97,69 @@ namespace Daily_TDD_Kata_Tests
             }
 
             [TestMethod]
-            [ExpectedException(typeof(System.Exception))]
-            public void ThrowExceptionWhenStringContainsNegativeNumbers()
+            [ExpectedException(typeof(System.Exception), "negatives not allowed")]
+            public void ThrowsExceptionWhenStringContainsNegativeNumbers()
             {
                 // arrange
                 string input_string = @"//;\n1;-2";
 
                 // act
-                int actual = StringCalculator.Add(input_string);
+                try
+                {
+                    int actual = StringCalculator.Add(input_string);
+                }
+                catch (Exception e)
+                {
+                    Assert.IsTrue(e.Message.Contains("-2"), "Negative values not displayed in error message");
+                    throw e;
+                }
 
                 // assert
                 
+            }
+
+            [TestMethod]
+            public void IgnoresNumbersGreaterThanOneThousand()
+            {
+                // arrange
+                string input_string = "1001,2";
+                int expected = 2;
+
+                // act
+                int actual = StringCalculator.Add(input_string);
+
+                // assert
+                Assert.AreEqual(expected, actual);
+
+            }
+
+            [TestMethod]
+            public void AllowsVariableLengthDelimiterUsingBracketFormat()
+            {
+                // arrange
+                string input_string = @"//[***]\n1***2***3";
+                int expected = 6;
+
+                // act
+                int actual = StringCalculator.Add(input_string);
+
+                // assert
+                Assert.AreEqual(expected, actual);
+            }
+
+            [TestMethod]
+            public void AllowsMultipleDelimitersUsingBracketFormat()
+            {
+                // arrange
+                // string input_string = @"//[*][%]\n1*2%3";
+                // int expected = 6;
+
+                // act
+                // int actual = StringCalculator.Add(input_string);
+
+                // assert
+                // Assert.AreEqual(expected, actual);
+                Assert.Inconclusive("Multiple Delimiters not yet supported");
             }
         }
     }
