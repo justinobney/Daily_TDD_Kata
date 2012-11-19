@@ -11,8 +11,9 @@ namespace Daily_TDD_Kata_Tests
         [TestClass]
         public class TheAddMethod
         {
+            // The method can take 0, 1 or 2 numbers, and will return their sum (for an empty string it will return 0) for example "" or "1" or "1,2"
             [TestMethod]
-            public void ReturnZeroForEmptyString()
+            public void return_zero_for_empty_string()
             {
                 // arrange
                 string input_string = "";
@@ -26,25 +27,26 @@ namespace Daily_TDD_Kata_Tests
             }
 
             [TestMethod]
-            public void ReturnOneforStringOne()
+            public void return_one_for_string_one()
             {
                 // arrange
-                string input_string = "1";
                 int expected = 1;
+                string input_string = "1";
 
                 // act
                 int actual = StringCalculator.Add(input_string);
 
                 // assert
                 Assert.AreEqual(expected, actual);
+                
             }
 
             [TestMethod]
-            public void ReturnThreeForStringOneTwo()
+            public void return_three_for_comma_seperated_numbers_one_two()
             {
                 // arrange
+                int expected = 3;
                 string input_string = "1,2";
-                int expected = 3;
 
                 // act
                 int actual = StringCalculator.Add(input_string);
@@ -54,26 +56,30 @@ namespace Daily_TDD_Kata_Tests
                 
             }
 
+            // Allow the Add method to handle an unknown amount of numbers
             [TestMethod]
-            public void ReturnSixForStringOneTwoThree()
+            public void return_ten_for_comma_seperated_numbers_one_two_three_four()
             {
                 // arrange
-                string input_string = "1,2,3";
-                int expected = 6;
+                int expected = 10;
+                string input_string = "1,2,3,4";
 
                 // act
                 int actual = StringCalculator.Add(input_string);
 
                 // assert
                 Assert.AreEqual(expected, actual);
+                
             }
 
+            // Allow the Add method to handle new lines between numbers (instead of commas).
+            // The following input is ok:  "1\n2,3"  (will equal 6)
             [TestMethod]
-            public void ReturnSixUsingNewlineDelimiter()
+            public void allow_add_to_handle_new_line_as_delimiter()
             {
                 // arrange
+                int expected = 6;
                 string input_string = @"1\n2,3";
-                int expected = 6;
 
                 // act
                 int actual = StringCalculator.Add(input_string);
@@ -82,84 +88,59 @@ namespace Daily_TDD_Kata_Tests
                 Assert.AreEqual(expected, actual);
             }
 
+            // Support different delimiters
+
+            // To change a delimiter, the beginning of the string will contain a separate line that looks 
+            // like this:   "//[delimiter]\n[numbers…]" for example "//;\n1;2" should return three where the default delimiter is ';' .
+
             [TestMethod]
-            public void ReturnSixUsingDelimitersDefinedInInputString()
+            public void allow_delimiter_to_be_defined_in_input_string_using_slash_delimiter_new_line_format()
             {
                 // arrange
-                string input_string = @"//;\n1;2";
                 int expected = 3;
+                string input_string = @"//;\n1;2";
 
                 // act
                 int actual = StringCalculator.Add(input_string);
 
                 // assert
                 Assert.AreEqual(expected, actual);
-            }
-
-            [TestMethod]
-            [ExpectedException(typeof(System.Exception), "negatives not allowed")]
-            public void ThrowsExceptionWhenStringContainsNegativeNumbers()
-            {
-                // arrange
-                string input_string = @"//;\n1;-2";
-
-                // act
-                try
-                {
-                    int actual = StringCalculator.Add(input_string);
-                }
-                catch (Exception e)
-                {
-                    Assert.IsTrue(e.Message.Contains("-2"), "Negative values not displayed in error message");
-                    throw e;
-                }
-
-                // assert
                 
             }
 
+            // Calling Add with a negative number will throw an exception “negatives not allowed” - and the negative that was passed.
+            // If there are multiple negatives, show all of them in the exception message
+
             [TestMethod]
-            public void IgnoresNumbersGreaterThanOneThousand()
+            [ExpectedException(typeof (Exception), "Negative numbers are not allowed")]
+            public void throws_exception_for_negative_numbers()
             {
                 // arrange
-                string input_string = "1001,2";
                 int expected = 2;
+                string input_string = "4,-2";
 
                 // act
                 int actual = StringCalculator.Add(input_string);
 
                 // assert
                 Assert.AreEqual(expected, actual);
-
+                
             }
 
+            // Numbers bigger than 1000 should be ignored, so adding 2 + 1001  = 2
             [TestMethod]
-            public void AllowsVariableLengthDelimiterUsingBracketFormat()
+            public void ignore_numbers_greater_than_one_thousand()
             {
                 // arrange
-                string input_string = @"//[***]\n1***2***3";
-                int expected = 6;
+                int expected = 2;
+                string input_string = "2,1001";
 
                 // act
                 int actual = StringCalculator.Add(input_string);
 
                 // assert
                 Assert.AreEqual(expected, actual);
-            }
-
-            [TestMethod]
-            public void AllowsMultipleDelimitersUsingBracketFormat()
-            {
-                // arrange
-                // string input_string = @"//[*][%]\n1*2%3";
-                // int expected = 6;
-
-                // act
-                // int actual = StringCalculator.Add(input_string);
-
-                // assert
-                // Assert.AreEqual(expected, actual);
-                Assert.Inconclusive("Multiple Delimiters not yet supported");
+                
             }
         }
     }
