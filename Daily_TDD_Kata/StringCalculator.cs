@@ -16,16 +16,14 @@ namespace Daily_TDD_Kata
                 return result;
 
             string[] standardDelimiters = {",", @"\n"};
-            
+
             if (standardDelimiters.Any(numbers.Contains))
             {
                 IEnumerable<string> splitNums = numbers.Split(standardDelimiters, StringSplitOptions.None);
                 result = splitNums.Select(int.Parse).Sum();
             }
             else
-            {
                 result = int.Parse(numbers);
-            }
 
             return result;
         }
