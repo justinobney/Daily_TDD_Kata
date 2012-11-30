@@ -19,3 +19,5 @@ C:\Users\Justin-Mac\Documents\GitHub\Daily_TDD_Kata\Daily_TDD_Kata_Tests\bin\Deb
 C:\Users\Justin-Mac\Documents\GitHub\Daily_TDD_Kata\Daily_TDD_Kata_Tests\obj\Debug\Daily_TDD_Kata_Tests.csprojResolveAssemblyReference.cache
 C:\Users\Justin-Mac\Documents\GitHub\Daily_TDD_Kata\Daily_TDD_Kata_Tests\obj\Debug\Daily_TDD_Kata_Tests.dll
 C:\Users\Justin-Mac\Documents\GitHub\Daily_TDD_Kata\Daily_TDD_Kata_Tests\obj\Debug\Daily_TDD_Kata_Tests.pdb
+C:\Projects\Daily_TDD_Kata\Daily_TDD_Kata_Tests\obj\Debug\Daily_TDD_Kata_Tests.csprojResolveAssemblyReference.cache
+C:\Projects\Daily_TDD_Kata\Daily_TDD_Kata_Tests\obj\Debug\Daily_TDD_Kata_Tests.dll
