@@ -11,8 +11,6 @@ namespace Daily_TDD_Kata
         {
             var result = 0;
 
-            // For demonstration...
-
             //Return 0 when an empty string is sent in
             if (string.IsNullOrEmpty(numbers))
                 return result;
